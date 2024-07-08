@@ -1,7 +1,7 @@
-// const ProductModel = require("../models/productModel");
+const ProductModel = require("../models/productModel");
 
 //Get Products API - /api/v1/products
-exports.getProducts = (req, res, next) => {
+exports.getProducts = async (req, res, next) => {
   //   const query = req.query.keyword
   //     ? {
   //         name: {
@@ -10,10 +10,10 @@ exports.getProducts = (req, res, next) => {
   //         },
   //       }
   //     : {};
-  //   const products = await ProductModel.find(query);
+  const products = await ProductModel.find({});
   res.json({
     success: true,
-    message: "Get products working!",
+    products,
   });
 };
 
